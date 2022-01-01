@@ -7,8 +7,9 @@ const config = {
     authorTwitter: "https://twitter.com/",
     authorGithub: "https://github.com/shobhi1310/blogs",
     dev: {
-        postdir: "./content",
-        outdir: "./public"
+        postdir: "./posts",
+        outdir: "./public",
+        authorAbout: "./about.md"
     }
 }
 

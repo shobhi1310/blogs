@@ -2,6 +2,8 @@ const config = require('./config')
 const marked = require('marked')
 const fm = require('front-matter')
 const fs = require('fs')
+const moment = require('moment')
+const utils = require('./utils')
 
 const posthtml = (data) => `
 <!DOCTYPE html>
@@ -11,17 +13,15 @@ const posthtml = (data) => `
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${data.attributes.description}" />
         <title>${data.attributes.title}</title>
+        <link rel="stylesheet" href="../assets/style.css" />
     </head>
     <body>
-        <header>
-            <a href="/">Go back home</a>
-        </header>
-        <div class="content">
-                <h1>${data.attributes.title}</h1>
-            <p>${new Date(parseInt(data.attributes.date)).toDateString()}</p>
-            <hr/>
+        <div class="wrapper">
+                <h1 class="postTitle">${data.attributes.title}</h1>
+            <p class="date">${moment(data.attributes.date).format('MMMM Do YYYY')}</p>
             ${data.body}
         </div>
+        ${utils.footer()}
     </body>
 </html>
 `;
@@ -36,10 +36,10 @@ const createPost = (postPath) => {
 
 const writePosts = (posts) => {
     posts.forEach(post => {
-        if(!fs.existsSync(`${config.dev.outdir}/${post.path}`)){
-            fs.mkdirSync(`${config.dev.outdir}/${post.path}`)
-        }
-        fs.writeFile(`${config.dev.outdir}/${post.path}/index.html`,posthtml(post),(e)=>{if(e)throw e; console.log(`${post.path}/index.html created succesfully`);})
+        if (!fs.existsSync(`${config.dev.outdir}`)) fs.mkdirSync(`${config.dev.outdir}`);
+
+        fs.writeFile(`${config.dev.outdir}/${post.path}.html`,posthtml(post),
+        (e)=>{if(e)throw e; console.log(`${post.path}.html created succesfully`);})
     });
 }
 

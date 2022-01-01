@@ -24,7 +24,7 @@ const homePage = (posts) =>`
                 ${posts
                   .map(
                     post => `<div class="post">
-                    <h3><a href="./${post.path}">${
+                    <h3><a href="./${post.path}.html">${
                       post.attributes.title
                     }</a></h3>
                         <small>${new Date(
