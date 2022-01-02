@@ -5,7 +5,7 @@ const fs = require('fs')
 const moment = require('moment')
 const utils = require('./utils')
 
-const posthtml = (data) => `
+const posthtml = (data,prev,next) => `
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,6 +20,16 @@ const posthtml = (data) => `
                 <h1 class="postTitle">${data.attributes.title}</h1>
             <p class="date">${moment(data.attributes.date).format('MMMM Do YYYY')}</p>
             ${data.body}
+            <div class="controls">
+                ${(prev)? (`<p>
+                    <strong>Previous post</strong>: 
+                    <a class="previous" href="./${prev.path}.html">${prev.attributes.title}</a>
+                </p>`) : ('')}
+                ${(next)? (`<p>
+                    <strong>Next post</strong>: 
+                    <a class="next" href="./${next.path}.html">${next.attributes.title}</a>
+                </p>`) : ('')}
+            </div>
         </div>
         ${utils.footer()}
     </body>
@@ -35,10 +45,10 @@ const createPost = (postPath) => {
 };
 
 const writePosts = (posts) => {
-    posts.forEach(post => {
+    posts.forEach((post,ind,fullArray) => {
         if (!fs.existsSync(`${config.dev.outdir}`)) fs.mkdirSync(`${config.dev.outdir}`);
 
-        fs.writeFile(`${config.dev.outdir}/${post.path}.html`,posthtml(post),
+        fs.writeFile(`${config.dev.outdir}/${post.path}.html`,posthtml(post,fullArray[ind-1],fullArray[ind+1]),
         (e)=>{if(e)throw e; console.log(`${post.path}.html created succesfully`);})
     });
 }

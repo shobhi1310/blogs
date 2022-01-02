@@ -9,7 +9,8 @@ const config = {
     dev: {
         postdir: "./posts",
         outdir: "./public",
-        authorAbout: "./about.md"
+        authorAbout: "./about.md",
+        homePage: "./homepage.md"
     }
 }
 

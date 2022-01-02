@@ -1,6 +1,6 @@
 ---
 title: Random days
-description: Some random thoughts
+description: Some random thoughts about life, peace, world, etc...
 date: 2021-06-14
 tags:
   - posts
