@@ -9,7 +9,7 @@ const homePage = (posts) =>`
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${config.blogDescription}" />
         <title>${config.blogName}</title>
-        <link rel="stylesheet" href="../assets/style.css" />
+        <link rel="stylesheet" href="./assets/style.css" />
     </head>
     <body>
         <div class="grotesk">

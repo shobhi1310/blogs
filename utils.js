@@ -25,7 +25,7 @@ const homePage = (data,post) =>`
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${data.attributes.description}" />
         <title>${data.attributes.title}</title>
-        <link rel="stylesheet" href="../assets/style.css" />
+        <link rel="stylesheet" href="./assets/style.css" />
     </head>
     <body>
         <div class="grotesk">
@@ -64,7 +64,7 @@ const abouthtml = (data) => `
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${data.attributes.description}" />
         <title>${data.attributes.title}</title>
-        <link rel="stylesheet" href="../assets/style.css" />
+        <link rel="stylesheet" href="./assets/style.css" />
     </head>
     <body>
         <div class="content">
@@ -95,7 +95,7 @@ const postsPage = (posts) =>`
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="All posts" />
         <title>Posts</title>
-        <link rel="stylesheet" href="../assets/style.css" />
+        <link rel="stylesheet" href="./assets/style.css" />
     </head>
     <body>
     <div class="wrapper">
