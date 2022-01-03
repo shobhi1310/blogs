@@ -170,6 +170,18 @@ ul.no-bullet {
 list-style-type: none;
 }
 
+blockquote {
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 50px;
+padding-left: 15px;
+border-left: 3px solid #ccc;
+background-color: var(--color-primary);
+}
+
+blockquote p {
+display: inline;
+}
 /* Link styles */
 a:not(.btn--remix):link,
 a:not(.btn--remix):visited {
