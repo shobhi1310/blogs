@@ -1,7 +1,7 @@
 ---
 title: We are in the End-Sem now!
 description: Is it an end-game for my free life?
-date: 2022-01-03
+date: 2022-02-07
 tags:
   - posts
 layout: layouts/post.njk
