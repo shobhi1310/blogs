@@ -28,7 +28,7 @@ jobs:
     - run: npm run build
     - name: Mark github workspace as safe
       run: |
-        git config --system --add safe.directory /github/workspace/public
+        git config --local --add safe.directory /github/workspace/public
     - name: Init new repo in dist folder and commit generated files
       run: |
         cd public
