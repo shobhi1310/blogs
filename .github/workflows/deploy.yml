@@ -26,7 +26,9 @@ jobs:
       
     - run: npm ci
     - run: npm run build
-
+    - name: Mark github workspace as safe
+      run: |
+        git config --global --add safe.directory $PWD
     - name: Init new repo in dist folder and commit generated files
       run: |
         cd public
